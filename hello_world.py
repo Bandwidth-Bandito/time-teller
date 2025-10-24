@@ -3,7 +3,7 @@ import time
 
 from PIL import Image, ImageDraw, ImageFont
 
-from utils.waveshare_epd import epd7in5_V2
+from utils.waveshare_epd import epd7in3e
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -11,7 +11,7 @@ font = ImageFont.truetype("data/fonts/CormorantGaramond-VariableFont_wght.ttf", 
 
 try:
     logging.info("Initialized EPD")
-    epd = epd7in5_V2.EPD()
+    epd = epd7in3e.EPD()
     
     epd.init() # Needed after waking from sleep-mode
 
@@ -35,5 +35,5 @@ except IOError as e:
 
 except KeyboardInterrupt:
     logging.info("ctrl + C:")
-    epd7in5_V2.epdconfig.module_exit(cleanup=True)
+    epd7in3e.epdconfig.module_exit(cleanup=True)
     exit()
